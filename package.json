@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "领域事件基础校验",
+  "description": "研学实操污染隔离与可恢复编排服务",
   "scripts": {
     "test": "node --test",
-    "build": "node --check src/validator.js"
+    "build": "for f in src/*.js; do node --check \"$f\" || exit 1; done"
   }
 }

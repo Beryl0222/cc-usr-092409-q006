@@ -19,12 +19,34 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "RESOURCE_REGISTERED",
+        "MENTOR_REGISTERED",
+        "CONTACT_LINKED",
+        "GROUP_REGISTERED",
+        "SLOT_PLANNED",
         "GROUP_CONFIRMED",
         "RESOURCE_ALLOCATED",
+        "WAITLIST_REQUESTED",
+        "WAITLIST_EXPIRED",
         "ACTIVITY_STARTED",
+        "CHECKOUT_RECORDED",
+        "RECEIPT_QUARANTINED",
+        "RESERVATION_RELEASED",
+        "WAITLIST_PROMOTED",
+        "CONTAMINATION_REPORTED",
+        "CONTAMINATION_RECORDED",
+        "SLOT_SUSPENDED",
+        "EVIDENCE_ACCEPTED",
+        "EVIDENCE_INVALIDATED",
+        "MAINTENANCE_ORDERED",
+        "MAINTENANCE_COMPLETED",
+        "SLOT_REROUTED",
+        "ACTIVITY_RESUMED",
+        "ACTIVITY_COMPLETED",
         "ITINERARY_REVISED",
-        "EVIDENCE_ACCEPTED"
-      ]
+        "RECOVERY_COMPLETED"
+      ],
+      "description": "RESOURCE_ALLOCATED 表示确认时的原子预留；CHECKOUT_RECORDED 为活动开始后的实际领用扣减；RESERVATION_RELEASED/WAITLIST_PROMOTED 必须在同一原子批次中完成未用预留向候补的转移；ITINERARY_REVISED 记录一次改线保留的节点、失效证据与耗材余量变化。"
     },
     "aggregate_type": {
       "type": "string",
@@ -32,7 +54,8 @@
         "student_group",
         "activity_slot",
         "resource_unit",
-        "learning_evidence"
+        "learning_evidence",
+        "mentor"
       ]
     },
     "aggregate_id": {
