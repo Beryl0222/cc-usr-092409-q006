@@ -1,11 +1,11 @@
 {
   "name": "study-tour-lab-orchestration",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "领域事件基础校验",
+  "description": "研学实操器材污染隔离与可恢复编排服务",
   "scripts": {
     "test": "node --test",
-    "build": "node --check src/validator.js"
+    "build": "node --check src/validator.js && node --check src/domain.js && node --check src/service.js"
   }
 }

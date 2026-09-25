@@ -20,19 +20,48 @@
       "type": "string",
       "enum": [
         "GROUP_CONFIRMED",
-        "RESOURCE_ALLOCATED",
+        "MENTOR_REGISTERED",
+        "UNIT_REGISTERED",
+        "BATCH_REGISTERED",
+        "RESOURCE_LOCKED",
         "ACTIVITY_STARTED",
-        "ITINERARY_REVISED",
-        "EVIDENCE_ACCEPTED"
+        "SLOT_COMPLETED",
+        "CONSUMABLES_ISSUED",
+        "RESERVATION_RELEASED",
+        "WAITLIST_REGISTERED",
+        "WAITLIST_FULFILLED",
+        "WAITLIST_EXPIRED",
+        "CONTACT_RECORDED",
+        "HAZARD_RAISED",
+        "RESOURCE_QUARANTINED",
+        "SLOT_SUSPENDED",
+        "SLOT_RESUMED",
+        "SLOT_REPLACED",
+        "CLEANING_RECORDED",
+        "CALIBRATION_RECERTIFIED",
+        "BATCH_CLEARED",
+        "EVIDENCE_ACCEPTED",
+        "EVIDENCE_INVALIDATED",
+        "REVISION_RESUMED",
+        "REVISION_CLOSED",
+        "RECEIPT_QUARANTINED",
+        "EVENT_QUARANTINED",
+        "ITINERARY_REVISED"
       ]
     },
     "aggregate_type": {
       "type": "string",
       "enum": [
         "student_group",
+        "mentor",
         "activity_slot",
         "resource_unit",
-        "learning_evidence"
+        "consumable_batch",
+        "learning_evidence",
+        "waitlist_entry",
+        "revision",
+        "offline_receipt",
+        "event"
       ]
     },
     "aggregate_id": {
@@ -50,6 +79,18 @@
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "command_id": {
+      "type": "string",
+      "description": "产生该事件的命令标识；同一 command_id 重放必须幂等。"
+    },
+    "content_hash": {
+      "type": "string",
+      "description": "除 event_id 外事件内容的规范化哈希；同 event_id 异 hash 进入隔离。"
+    },
+    "revision_id": {
+      "type": "string",
+      "description": "污染或校准失效触发的改线标识，受影响节点、恢复路线与证据判定都挂在该改线下。"
     }
   },
   "additionalProperties": true
